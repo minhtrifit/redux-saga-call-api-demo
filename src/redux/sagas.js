@@ -1,5 +1,9 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { getUsersSuccess, getUsersFailed } from "./reducers/UserReducer";
+import {
+  getUsersFetch,
+  getUsersSuccess,
+  getUsersFailed,
+} from "./reducers/UserReducer";
 
 function* workGetUsersFetch() {
   try {
@@ -14,7 +18,8 @@ function* workGetUsersFetch() {
 }
 
 function* userSaga() {
-  yield takeEvery("users/getUsersFetch", workGetUsersFetch);
+  // yield takeEvery("users/getUsersFetch", workGetUsersFetch);
+  yield takeEvery(getUsersFetch, workGetUsersFetch);
 }
 
 export default userSaga;
